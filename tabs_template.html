@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atualizações de Ultimate Guitar Tabs</title>
+    <style>
+        @font-face {
+            font-family: 'Open Sans,-apple-system,Roboto,Helvetica neue,Helvetica,sans-serif';
+            src: url('https://fonts.gstatic.com/s/opensans/v35/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format('woff2');
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #2d2d2d;
+            font-weight: bolder;
+        }
+
+        .tab-container {
+            max-width: 500px;
+            width: 90%;
+            padding: 20px;
+            background-color: #000000;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ffc600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tab h3 {
+            margin: 0;
+        }
+
+        .tab p {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .link-style {
+            text-decoration: underline;
+            color: #ffc600;
+            font-weight: bold;
+        }
+
+        .link-style:hover {
+            text-decoration: none;
+            color: #ddc;
+        }
+
+        .title-style {
+            color: #ffc600;
+        }
+
+        .title-style:hover {
+            text-decoration: none;
+            color: #ddc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-container">
+        <h1>Ultimate Guitar Tabs</h1>
+
+        {% for tab in tabs %}
+        <div class="tab">
+            <h3 class="title-style">{{ tab.song_name }}</h3>
+            <p style="color: #ddc;">Artista: {{ tab.artist_name }}</p>
+            <p style="color: #ddc;">Data: {{ tab.formatted_date }}</p>
+            <p><a href="{{ tab.tab_url }}" class="link-style">ACESSAR TAB</a></p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
